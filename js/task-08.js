@@ -42,7 +42,6 @@ function onFormSubmit(event) {
     alert("all fields must be filled");
   } else {
     console.log(formData);
+    form.reset();
   }
-
-  form.reset();
 }
