@@ -20,11 +20,17 @@ const images = [
   },
 ];
 
-const ulEl = document.querySelector(".gallery");
+const ulEl = document.querySelector(`.gallery`);
 
-images.forEach((el) => {
-  ulEl.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "300" height = "200" /></li>`
-  );
-});
+//images.forEach((el) => {
+// ulEl.insertAdjacentHTML(
+//  "afterbegin",
+const markup = images
+  .map(
+    (images) =>
+      `<li><img src = "${images.url}" alt = "${images.alt}"  width = "300" height = "200" /></li>`
+  )
+  .join("");
+console.log(markup);
+
+ulEl.insertAdjacentHTML("afterbegin", markup);
