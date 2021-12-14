@@ -9,19 +9,37 @@
 
 //Для генерации случайного цвета используй функцию getRandomHexColor.
 
-const randomColor = document.querySelector(".widget");
-const span = document.querySelector(".color");
-randomColor.addEventListener("click", onButtonClick);
+
+//N1
+//const randomColor = document.querySelector(".widget");
+//const span = document.querySelector(".color");
+//randomColor.addEventListener("click", onButtonClick);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-function onButtonClick(evt) {
-  span.textContent = getRandomHexColor();
+//function onButtonClick(evt) {
+ // span.textContent = getRandomHexColor();
 
-  if (!evt.target.classList.contains("change-color")) {
-    return;
-  }
-  return (document.body.style.background = getRandomHexColor());
-}
+  //if (!evt.target.classList.contains("change-color")) {
+  //  return;
+ // }
+ // return (document.body.style.background = getRandomHexColor());
+//}
+
+//       Правка 
+
+const changeColorBtn = document.querySelector(".change-color");
+const showColorSpan = document.querySelector(".color");
+
+const changeColor = () => {
+  document.body.style.backgroundColor = getRandomHexColor();
+};
+
+const showColor = () => {
+  showColorSpan.textContent = getRandomHexColor();
+};
+
+changeColorBtn.addEventListener("click", changeColor);
+changeColorBtn.addEventListener("click", showColor);
